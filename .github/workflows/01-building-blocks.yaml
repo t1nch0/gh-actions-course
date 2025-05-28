@@ -7,7 +7,7 @@ jobs:
             - name: Say hello
               run: echo "hello workd!"
     echo-goockby:
-        runs-on: ubuntly-latest
+        runs-on: ubuntu-latest
         steps:
             - name: failed step
               run: |
