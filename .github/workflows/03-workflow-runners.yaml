@@ -7,4 +7,4 @@ jobs:
             - name: show OS
               run: |
                 echo "this job is runninng on ubuntu runner."
-                echo "runner OS: &RUNNER_OS"
+                echo "runner OS: $RUNNER_OS"
