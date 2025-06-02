@@ -9,7 +9,7 @@ jobs:
                 echo "this job is runninng on ubuntu runner."
                 echo "runner OS: $RUNNER_OS"
     windows-echo:
-        runs-on: windowns-latest
+        runs-on: windows-latest
         steps:
           - name: show OS
             run: |
