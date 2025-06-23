@@ -31,12 +31,19 @@ jobs:
                 echo "variable value ${{vars.MY_VAR}}"
       - name: Print env variables
         env:
-            MY_MY_OVERWRITTEN_VAR: 'step'
+            MY_OVERWRITTEN_VAR: 'step'
         run: |
                 echo "workflow env: ${{env.MY_WORKFLOW_VAR}}"
-                echo "overwritten env: ${{env.MY_MY_OVERWRITTEN_VAR}}"
+                echo "overwritten env: ${{env.MY_OVERWRITTEN_VAR}}"
       - name: print variables
         run: |
                 echo "workflow env: ${{env.MY_WORKFLOW_VAR}}"
-                echo "overwritten env: ${{env.MY_MY_OVERWRITTEN_VAR}}"
-
+                echo "overwritten env: ${{env.MY_OVERWRITTEN_VAR}}"
+  echo-data2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: print env variables
+        run: |
+                echo "workflow env MY_WORKFLOW_VAR"
+                echo "overwritten env MY_OVERWRITTEN_VAR"
+        
