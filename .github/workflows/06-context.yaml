@@ -1,13 +1,13 @@
-name: 06-context
+name: 06 - context
 on: 
   push:
   workflow_dispatch:
 jobs:
-    echo-data:
-        runs-on: ubuntu-latest
-        steps: 
-            - name: Dusplay info
-              run: |
+  echo-data:
+      runs-on: ubuntu-latest
+      steps: 
+      - name: Display info
+        run: |
                 echo "Event Name: ${{github.event_name}}"
                 echo "ref:${{github.ref}}"
                 echo "SHA ${{github.sha}}"
@@ -15,6 +15,6 @@ jobs:
                 ecto "workflow ${{github.workflow}}"
                 echo "run ID ${{github.run_id}}"
                 echo "run number ${{github.run_number}}"
-            - name: retrieve variable
-              run: |
+      - name: Retrieve variable
+        run: |
                 echo "variable value ${{vars.MY_VAR}}"
