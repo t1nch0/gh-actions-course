@@ -1,7 +1,9 @@
 name: 06-context
-on: push
+on: 
+  push:
+  workflow_dispatch:
 jobs:
-    eco.data:
+    echo-data:
         runs-on: ubuntu-latest
         steps: 
             - name: Dusplay info
