@@ -13,7 +13,7 @@ jobs:
                 echo "ref:${{github.ref}}"
                 echo "SHA ${{github.sha}}"
                 echo "actor ${{github.actor}}"
-                ecto "workflow ${{github.workflow}}"
+                echo "workflow ${{github.workflow}}"
                 echo "run ID ${{github.run_id}}"
                 echo "run number ${{github.run_number}}"
       - name: Retrieve variable
