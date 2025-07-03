@@ -3,12 +3,14 @@ on:
     push:
     workflow_dispatch:
 env:
-    WORKFLOW_VAR: "i am a workflow env var"        
+    WORKFLOW_VAR: "i am a workflow env var"  
+    OVERWRITTEN: "I will be overwritte"      
 jobs:
     echo:
         runs-on: ubunty-latest
         env:
             JOB_VAR: "I AM A JOB ENV VAR"
+            OVERWRITTEN: "I have been overwritten at job level"
         steps:
             - name: Pring Env variables
               env:
@@ -19,3 +21,9 @@ jobs:
                 echo "sten env var2: $step_var2"
                 echo "job env var:; ${{env.JOB_VAR}}"
                 echo "workflow env var:; ${{env.WORKFLOW_VAR}}"
+                echo "Overwritten: ${{env.OVERWRITTEN}}"
+            - name: overwrite job variable
+              env: 
+                OVERWRITTEN: "I HAVE BEEN OVERWRITEN AT STEP LVL"
+              run: |
+                echo "sten env var: ${{env.OVERWRITTEN}}"
