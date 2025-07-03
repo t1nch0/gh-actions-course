@@ -1,11 +1,11 @@
 name: 07 - using e3xpressions
 on:
     push:
-      workflow_dispatch:
+    workflow_dispatch:
         inputs:
             debug:
                 type: boolean
-                default: flase
+                default: false
 jobs:
     echo:
       runs-on: ubuntu-latest
