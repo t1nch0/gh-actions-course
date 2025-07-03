@@ -1,0 +1,21 @@
+name: 08 -  using Variables
+on:
+    push:
+    workflow_dispatch:
+env:
+    WORKFLOW_VAR: "i am a workflow env var"        
+jobs:
+    echo:
+        runs-on: ubunty-latest
+        env:
+            JOB_VAR: "I AM A JOB ENV VAR"
+        steps:
+            - name: Pring Env variables
+              env:
+                STEP_VAR: "i am sa ste env var"
+                step_var2: "i am anoteher step env var"
+              run: |
+                echo "Step env var: ${{env.STEP_VAR}}"
+                echo "sten env var2: $step_var2"
+                echo "job env var:; ${{env.JOB_VAR}}"
+                echo "workflow env var:; ${{env.WORKFLOW_VAR}}"
