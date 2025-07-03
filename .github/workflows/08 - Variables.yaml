@@ -7,7 +7,7 @@ env:
     OVERWRITTEN: "I will be overwritte"      
 jobs:
     echo:
-        runs-on: ubunty-latest
+        runs-on: ubuntu-latest
         env:
             JOB_VAR: "I AM A JOB ENV VAR"
             OVERWRITTEN: "I have been overwritten at job level"
