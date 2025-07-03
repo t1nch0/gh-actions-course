@@ -1,7 +1,6 @@
 name: 07 - using e3xpressions
 run-name: 07 - using expressions| DEBUG - ${{inputs.debug && 'ON' || 'OFF'}}
 on:
-    push:
     workflow_dispatch:
         inputs:
             debug:
