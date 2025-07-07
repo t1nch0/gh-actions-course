@@ -1,6 +1,5 @@
 name: 09 using functions
 on:
-    pull_request:
     workflow_dispatch:
 jobs:
     echo1:
@@ -16,14 +15,10 @@ jobs:
             - name: bug step
               if: ${{!cancelled() && contains(github.event.pull_request.title, 'fix')}}
               run: echo "i am a bug fix"
-            - name: sleep step 20 seconds
-              run: sleep 20
-            - name: failing step
-              run: exit 1
-            - name: i will be skipped
+            - name: i will execute
               if: ${{success()}}
               run: echo "i will print if preiovus stepps succed"
-            - name: i will execute
+            - name: i will be skipped
               if: ${{failure()}}
               run: echo "i will pring if any previous step fails"
             - name: i will execute when cancelled
