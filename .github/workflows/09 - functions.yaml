@@ -1,4 +1,4 @@
-name: 0'9 using functions
+name: 09 using functions
 on:
     pull_request:
     workflow_dispatch:
