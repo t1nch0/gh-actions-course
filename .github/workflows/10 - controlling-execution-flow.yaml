@@ -1,0 +1,52 @@
+name: 10 - controloing the execution flow
+on:
+    workflow_dispatch:
+      inputs:
+        pass-unit-test:
+          type: boolean
+          description: Wheter unit test will pass or not
+          default: true
+jobs:
+    lint-build:
+      runs-on: ubunty-latest
+      steps:
+        - name:
+          run: echo "loning and building project"
+    unit-test:
+      runs-on: ubunty-latest
+      steps:
+        - name: Runnint unit test
+          run: echo "running test"
+        - name: failing tests
+          if: ${{!inputs.pass-unit-tests}}
+          run: exit 1
+    deploy-nontprod:
+      runs-on: ubunty-latest
+      needs:
+        - lint-build
+        - unit-test
+      steps:
+        - name: Deploying to nonprod
+          run: echo "deploying to nonprod...."
+    e2e-test:
+      runs-on: ubunty-latest
+      needs:
+        - deploy-nontprod
+      steps:
+        - name: running e3e tests
+          run: echo "running E2E tests"
+    load-test:
+      runs-on: ubunty-latest
+      needs:
+        - deploy-nontprod
+      steps:
+        - name: running load tests
+          run: echo "running load tests"
+    deploy-prod:
+      runs-on: ubunty-latest
+      needs:
+        - e2e-test
+        - load-test
+      steps:
+        - name: Deploying to prod
+          run: echo "deploying to prod...."
