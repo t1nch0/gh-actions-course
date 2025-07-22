@@ -2,7 +2,7 @@ name: 10 - controloing the execution flow
 on:
   workflow_dispatch:
     inputs:
-      pass-unit-test:
+      pass-unit-tests:
         type: boolean
         description: Wheter unit test will pass or not
         default: true
