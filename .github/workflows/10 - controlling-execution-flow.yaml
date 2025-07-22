@@ -8,12 +8,12 @@ on:
         default: true
 jobs:
     lint-build:
-      runs-on: ubunty-latest
+      runs-on: ubuntu-latest
       steps:
         - name:
           run: echo "loning and building project"
     unit-test:
-      runs-on: ubunty-latest
+      runs-on: ubuntu-latest
       steps:
         - name: Runnint unit test
           run: echo "running test"
@@ -21,7 +21,7 @@ jobs:
           if: ${{!inputs.pass-unit-tests}}
           run: exit 1
     deploy-nontprod:
-      runs-on: ubunty-latest
+      runs-on: ubuntu-latest
       needs:
         - lint-build
         - unit-test
@@ -29,21 +29,21 @@ jobs:
         - name: Deploying to nonprod
           run: echo "deploying to nonprod...."
     e2e-test:
-      runs-on: ubunty-latest
+      runs-on: ubuntu-latest
       needs:
         - deploy-nontprod
       steps:
         - name: running e3e tests
           run: echo "running E2E tests"
     load-test:
-      runs-on: ubunty-latest
+      runs-on: ubuntu-latest
       needs:
         - deploy-nontprod
       steps:
         - name: running load tests
           run: echo "running load tests"
     deploy-prod:
-      runs-on: ubunty-latest
+      runs-on: ubuntu-latest
       needs:
         - e2e-test
         - load-test
