@@ -1,11 +1,11 @@
 name: 10 - controloing the execution flow
 on:
-    workflow_dispatch:
-      inputs:
-        pass-unit-test:
-          type: boolean
-          description: Wheter unit test will pass or not
-          default: true
+  workflow_dispatch:
+    inputs:
+      pass-unit-test:
+        type: boolean
+        description: Wheter unit test will pass or not
+        default: true
 jobs:
     lint-build:
       runs-on: ubunty-latest
