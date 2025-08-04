@@ -3,7 +3,6 @@ on:
     workflow_dispatch:
 jobs:
     test-build:
-
         runs-on: ubuntu-latest
         defaults:
             run:
@@ -14,7 +13,7 @@ jobs:
             - name: setupnode
               uses: actions/setup-node@v3
               with:
-                node-version: ´20.x
+                node-version: ´20.x'
             - name: download cached dependencies
               uses: actions/cache@v3
               id: cache
@@ -23,7 +22,7 @@ jobs:
                 key: deps-node-modules-${{hashFiles('14-artifacts/react-app/package-lock.json')}}
             - name: install dependencies
               if: steps.cache.outputs.cache-hit != true
-              run: npm ci´
+              run: npm ci
             - name: unit tests
               run: npm run test
             - name: build code
