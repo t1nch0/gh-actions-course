@@ -1,7 +1,6 @@
 name: 14 - working with artifacts
 on:
-    workflow-dispatch:
-
+    workflow_dispatch:
 jobs:
     test-build:
 
