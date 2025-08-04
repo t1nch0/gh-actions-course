@@ -8,9 +8,9 @@ jobs:
             run:
                 working-directory: 14-artifacts/react-app
         steps:
-            - name: checout code
-              uses: actions/checkout
-            - name: setupnode
+            - name: checkout code
+              uses: actions/checkout@v4
+            - name: setup node
               uses: actions/setup-node@v3
               with:
                 node-version: ´20.x'
@@ -28,7 +28,7 @@ jobs:
             - name: build code
               run: npm run build
             - name: upload build files
-              uses: actions/upload-articact@v3
+              uses: actions/upload-artifact@v3
               with:
                 name: app
                 path: 14-artifacts\react-app\build
@@ -37,7 +37,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: download build artifact
-              uses: actions/download-artifrac@v3
+              uses: actions/download-artifact@v3
               with:
                 name: app #same name than the name crated in upload files
                 path: build #where our files are going to be download
