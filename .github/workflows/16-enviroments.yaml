@@ -1,9 +1,9 @@
 name: 16 - working iwth enviroments
 on:
-    workflow-dispatch:
+    workflow_dispatch:
         inputs:
             target-env:
-                type: enviroment
+                type: environment
                 default: staging
 jobs:
     echo:
